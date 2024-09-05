@@ -1,0 +1,37 @@
+/* src/components/Pagination.module.css */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.pageButton {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pageButton:hover {
+  background-color: #e0e0e0;
+}
+
+.activePage {
+  background-color: #0070f3;
+  color: white;
+  border: 1px solid #0070f3;
+}
+
+.ellipsis {
+  cursor: default;
+  background-color: transparent;
+  border: none;
+}

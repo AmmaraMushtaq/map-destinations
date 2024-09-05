@@ -1,0 +1,553 @@
+.container {
+  text-align: center;
+  padding: 10px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.image {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.overlayText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.optionsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  background-color: #c0c0c0;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(67, 67, 67, 0.1);
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.optionItem {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fffdfd;
+  padding: 10px;
+  cursor: pointer;
+ 
+}
+
+.optionItem:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
+
+.popupContainer {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 540px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.5s ease, visibility 1.5s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.popupContainer.show {
+  opacity: 1;
+  visibility: visible;
+  
+}
+
+.popupOption {
+  padding: 10px;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  
+}
+
+
+
+.subPopupContainer .popupOption {
+  white-space: nowrap;
+ 
+ 
+}
+
+.subPopupContainer {
+  display: flex;
+  gap: 16px; /* Spacing between season options */
+  justify-content: center; /* Center the season options */
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+ 
+}
+
+.seasonOption {
+  display: flex;
+  flex-direction: column; /* Stack icon above text */
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.seasonOption .icon {
+  font-size: 2rem; /* Adjust icon size */
+  margin-bottom: 8px; /* Space between icon and text */
+  padding: 10px;
+  border-radius: 50%; /* Make icons circular */
+}
+
+/* Specific background colors for the seasons */
+.seasonOption.spring .icon {
+  background-color: #FFDD59; /* Yellow for Spring */
+  color: white;
+}
+
+.seasonOption.winter .icon {
+  background-color: #1E90FF; /* Light blue for Winter */
+  color: white;
+}
+
+.seasonOption.summer .icon {
+  background-color: #FF6347; /* Orange for Summer */
+  color: white;
+}
+
+.seasonOption.autumn .icon {
+  background-color: #8B4513; /* Brown for Autumn */
+  color: white;
+}
+
+/* Example of hover effect */
+.seasonOption:hover {
+  background-color: #c0c0c0; /* Lighter background color on hover */
+}
+
+/* Align the season options in a single row */
+.popupOptionGroup {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.datesGrid .popupOption:hover {
+  background-color: #c0c0c0; /* Hover effect for dates */
+}
+
+
+.popupOptionGroup > .popupOption {
+  flex: 1;
+  text-align: center;
+ 
+  
+}
+.datesScrollContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Prevent bottom scrollbar */
+}
+
+.datesScrollContent {
+  display: flex;
+  overflow-x: hidden; /* Disable horizontal scrollbar */
+  white-space: nowrap; /* Ensure that content doesn't wrap to the next line */
+  width: 100%;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.datesMonthBlock {
+  min-width: 330px;
+  margin-right: 10px;
+  background-color: #c2bdba;
+  display: inline-block; /* Ensure blocks stay in a single row */
+}
+
+.monthName {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: rgb(6, 5, 5);
+}
+
+.datesGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  padding: 5px;
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(24, 22, 22, 0.8);
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scrollButton.left {
+      left: -35px;
+  .datesScrollContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Prevent bottom scrollbar */
+  }
+  
+  .datesScrollContent {
+    display: flex;
+    overflow-x: hidden; /* Disable horizontal scrollbar */
+    white-space: nowrap; /* Ensure that content doesn't wrap to the next line */
+    width: 100%;
+    scroll-behavior: smooth; /* Smooth scrolling */
+  }
+  
+  .datesMonthBlock {
+    min-width: 330px;
+    margin-right: 10px;
+    background-color: #c2bdba;
+    display: inline-block; /* Ensure blocks stay in a single row */
+  }
+  
+  .monthName {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(6, 5, 5);
+  }
+  
+  .datesGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 5px;
+  }
+  
+  .scrollButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .scrollButton.left {
+    left: -35px;
+    z-index: 101;
+  }
+  
+  .scrollButton.right {
+    right: -35px;
+  }
+  
+  .scrollButton:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+}
+
+.scrollButton.right {
+  right: -35px;
+}
+
+.scrollButton:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.popupHeading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+  color: black;
+}
+
+.subPopupContainer {
+  display: flex;
+  justify-content: space-around; /* Evenly space the options */
+  gap: 16px; /* Space between options */
+}
+
+.popupContainer.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.travellerOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease; /* Smooth transition for hover effects */
+  text-align: center;
+  color: black;
+}
+
+.travellerOption .icon {
+  font-size: 1rem; /* Adjust icon size */
+  margin-bottom: 5px; /* Space between icon and text */
+}
+
+.travellerOption .icon4 {
+  width: 50px;
+  height: 50px;
+  
+  margin-bottom: 8px;
+
+  border-radius: 25px;
+  color: rgb(15, 14, 14); /* Initial color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.travellerOption:hover .icon4 {
+  color: #079EA5; /* Change the icon color to green on hover */
+  font-size: .3rem;
+}
+
+.travellerOption:hover {
+  /* Change background color on hover */
+  color: black; /* Keep text color black on hover */
+  font-size: 0.9rem; /* Make the text size smaller on hover */
+}
+
+.travellerOption:hover .icon4 {
+  color: #079EA5; /* Change icon color to green */
+}
+
+.travellerOption:hover {
+ 
+  color: black; /* Text color remains black */
+  font-size: 0.9rem; /* Decrease text size */
+ 
+}
+
+
+.moreButton {
+  position: relative;
+}
+
+.morePopup {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  z-index: 100;
+  color: black;
+}
+
+
+.mainHeading {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+ 
+  text-align: left;
+}
+
+.subHeading {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+/* Container using grid layout for checkboxes */
+.checkboxContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.iconOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between text and icon */
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.iconOption.inactive {
+  color: black;
+}
+
+/* Active state (clicked) */
+.iconOption.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Checkmark icon */
+.checkIcon {
+  font-size: 1.2rem;
+  margin-left: 8px;
+  color: white; /* Match the color of the active state */
+}
+
+
+/* Button styling */
+.updateButton {
+  display: block;
+  width: 30%;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: right;
+  justify-content: right;
+}
+
+/* For a container with 4 columns */
+.Containerr {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
+}
+
+.updateButton:hover {
+  background-color: #0056b3;
+}
+.closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000; /* Adjust color as needed */
+}
+
+
+/* .icon {
+  background-color: #5131a9; 
+  padding: 8px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+ 
+} */
+
+.subPopupContainer .travellerOption, .subPopupContainer .seasonOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subPopupContainer .travellerOption:hover, .subPopupContainer .seasonOption:hover {
+  background-color: #e0e0e0; /* Change to desired hover color */
+}
+
+@media (max-width: 1280px) {
+  .popupContainer {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .subPopupContainer {
+    width: 450px;
+    padding: 20px;
+  }
+
+  .overlayText {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 728px) {
+  .popupContainer {
+   
+    height: auto;
+    padding: 20px;
+    max-width: 728px;
+  }
+
+  .subPopupContainer {
+    width: 450px;
+    padding: 10px;
+  }
+
+  .overlayText {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .popupContainer {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+    max-width: 360px;
+  }
+
+  .subPopupContainer {
+    width: 190px;
+    padding: 5px;
+   
+    
+  }
+ 
+
+  .overlayText {
+    font-size: 1rem;
+  }
+}
